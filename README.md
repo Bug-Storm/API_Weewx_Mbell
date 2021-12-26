@@ -114,13 +114,13 @@ end timestamp = ` la Date/L'heure de la fin  que vous voulez récupérer  `
 
 Vous devrez avoir l'url comme ça pour le mode current: 
 
-`https://mydnsadresse/Api_Weewx_MBELL/current.php?t=1613422447&id=1&apikey=555&apisignature=555 `
+`https://mydnsadresse/API_Weewx_Mbell/current.php?t=1613422447&id=1&apikey=555&apisignature=555 `
 
 -------------------------------------------------------------------------
 
 Vous devrez avoir l'url comme ça pour le mode historic:
 
-`https://mydnsadresse/Api_Weewx_MBELL/historic.php?t=1613422447&id=1&apikey=555&apisignature=555&starttimestamp=1613343600&endtimestamp=1613419937 `
+`https://mydnsadresse/API_Weewx_Mbell/historic.php?t=1613422447&id=1&apikey=555&apisignature=555&starttimestamp=1613343600&endtimestamp=1613419937 `
 
 --------------------------------------------------------------------------
 
