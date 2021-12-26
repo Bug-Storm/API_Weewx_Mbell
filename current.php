@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
 
-                        $tableauProduits['sensors'][]['data'][]['data'] = $prod;
+                        $tableauProduits['sensors'][]['data'][] = $prod;
                     }
 
 
