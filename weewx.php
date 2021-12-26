@@ -106,7 +106,7 @@ class Weewx{
 
     public function getuser(){
         // On écrit la requête
-        $sql = "SELECT id, apikey, apisignature FROM ".$this->tableuser."LIMIT 1" ;
+        $sql = "SELECT id, apikey, apisignature FROM ".$this->tableuser." LIMIT 1" ;
 
         // On prépare la requête
         $query = $this->connexion->prepare($sql);
