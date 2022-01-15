@@ -47,10 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
 
-        if ($timestamp <= 300 and $verify24hTimestamp <= 24) { // Si le $timestamp est == ou < a 300s ou 5m  et le  $verify24hTimestamp est <= 24h  la requete est bonne on continnue sinon un erreur 404 est envoyé
+        if ($timestamp <= 300) { // Si le $timestamp est == ou < a 300s ou 5m  et le  $verify24hTimestamp est <= 24h  la requete est bonne on continnue sinon un erreur 404 est envoyé
 
             // On récupère les données du user
             $produit->getuser();
+          
 
             if (!empty($produit->id == $id and $produit->apikey == $apikey and $produit->apisignature == $apisignature)) {
                 // On verifie si les données de la query string sont correctes
@@ -62,15 +63,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 // On vérifie si on a au moins 1 produit
                 if ($stmt->rowCount() > 0) {
                     // On initialise un tableau associatif
-
-                    $tableauProduits['sensors'];
+                    $tableauProduits['sensors']=[];
+                    $tableauProduits['user']=[];
+                    $tableauProduits['sensors']=[];
 
 
                     // On parcourt les produits
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         extract($row);
 
+                        $user =[
 
+                            "station" => $station,
+                            "latitude" => $latitude,
+                            "longitude" => $longitude
+                        ];
 
                         $prod = [
 
@@ -105,8 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
 
-
-                        $tableauProduits['sensors'][]['data'][] = $prod;
+                        $tableauProduits['user'][]= $user;
+                        $tableauProduits['sensors'][]['data'][]['data'] = $prod;
                     }
 
 

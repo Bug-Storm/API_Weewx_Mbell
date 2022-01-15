@@ -14,6 +14,7 @@ $db = $database->getConnection();
 $produit = new Weewx($db);
 
 $produit->table();
+
 //Bienvenue    
 echo "---------------------------------------------------------------------------------------------------------------------------- \n";
 echo "Bienvenue, ce script vous permet de creer un user avec un Id et une Api key & Signature  \n";
@@ -26,21 +27,46 @@ $handle = fopen("php://stdin", "r");
 $line = fgets($handle);
 //Creation d'un Nom pour l'user 
 if (trim($line) == '') {
+
+  //GET NAME//
   echo "set name: ";
-  $name   = fread(STDIN, 20);
+  $name = fread(STDIN, 20);
+  //Remove space 
+  $name = preg_replace('/\s+/', '', $name);
+
+
+  //GET NAME_Station//
+  echo "set Station: ";
+  $station = fread(STDIN, 20);
+  //Remove space 
+  $station = preg_replace('/\s+/', '', $station);
+
+  //GET LAT//
+  echo "set Latitude: ";
+  $latitude = fread(STDIN, 50);
+  //Remove space 
+  $latitude = preg_replace('/\s+/', '', $latitude);
+  //GET LONG//
+  echo "set Longitude: ";
+  $longitude = fread(STDIN, 50);
+  //Remove space 
+  $longitude = preg_replace('/\s+/', '', $longitude);
 
   //Creation d'un ID random
-  $id  = rand(10, 20);
+  $id = rand(10, 20);
+
   // Creation d'une key random  
   $bytes1 = random_bytes(5);
   $apisignature = (bin2hex($bytes1));
+
   // Creation d'une key random  
   $bytes = random_bytes(5);
   $apikey = (bin2hex($bytes));
+
   echo "\n\n\n";
 
 
-// Methode de DAVIS pour l'api V2 
+  // Methode de DAVIS pour l'api V2 
   $parameters = array(
     "station-id" => $id,
     "api-key" => $apikey,
@@ -107,23 +133,27 @@ if (trim($line) == '') {
       v2 API URL would look like for this scenario.
       */
 } else {
-//Message d'erreur
+  //Message d'erreur
 
   echo "\n";
   echo "Veuillez recommencer :/ \n";
 }
 //Echo avec les données  
 echo "-------------------------------------------------------------------------------------------- \n";
+
 echo "User: " . $name . "\n";
 echo "id: " . $id . "\n";
 echo "ApiKey: " . $apikey . "\n";
 echo "ApiSignature: " . $apisignature . "\n";
+echo "Station : " . $station . "\n";
+echo "Latitude: " . $latitude . "\n";
+echo "Longitude: " . $longitude . "\n";
 echo $created = date('Y-m-d H:i:s') . "\n";
 echo "-------------------------------------------------------------------------------------------- \n";
 
 
 
-if (!empty($name) && !empty($id) && !empty($apikey) && !empty($apisignature)  && !empty($created)) {
+if (!empty($name) && !empty($id) && !empty($apikey) && !empty($apisignature)  && !empty($created) && !empty($latitude) && !empty($longitude) && !empty($station)) {
   // Ici on a reçu les données
   // On hydrate notre objet
   $produit->username = $name;
@@ -131,6 +161,10 @@ if (!empty($name) && !empty($id) && !empty($apikey) && !empty($apisignature)  &&
   $produit->apikey = $apikey;
   $produit->apisignature = $apisignature;
   $produit->created_at = $created;
+  $produit->station = $station;
+  $produit->latitude = $latitude;
+  $produit->longitude = $longitude;
+
 
   if ($produit->creer()) {
     // Ici la création a fonctionné

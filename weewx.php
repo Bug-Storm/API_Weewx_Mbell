@@ -31,6 +31,9 @@ class Weewx{
     public $apisignature;
     public $starttimestamp;
     public $endtimestamp;
+    public $latitude;
+    public $longitude;
+    public $station;
     
 
     
@@ -79,6 +82,9 @@ class Weewx{
             `username` varchar(50) NOT NULL,
             `apikey` varchar(255) NOT NULL,
             `apisignature` varchar(255) NOT NULL,
+            `station` varchar(20) NOT NULL,
+            `latitude` varchar(255) NOT NULL,
+            `longitude` varchar(255) NOT NULL,
             `created_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
             UNIQUE KEY `username` (`username`)
@@ -106,7 +112,7 @@ class Weewx{
 
     public function getuser(){
         // On écrit la requête
-        $sql = "SELECT id, apikey, apisignature FROM ".$this->tableuser." LIMIT 1" ;
+        $sql = "SELECT * FROM ".$this->tableuser." LIMIT 1" ;
 
         // On prépare la requête
         $query = $this->connexion->prepare($sql);
@@ -124,6 +130,10 @@ class Weewx{
     $this->id = $row['id'];
     $this-> apikey  = $row ['apikey'];
     $this-> apisignature = $row ['apisignature'];
+    $this-> latitude = $row ['latitude'];
+    $this-> longitude = $row ['longitude'];
+    $this-> station = $row ['station'];
+    
 
     }
 
@@ -135,7 +145,7 @@ class Weewx{
     public function creer(){
 
         // Ecriture de la requête SQL en y insérant le nom de la table
-        $sql = "INSERT INTO " . $this->tableuser . " SET  id=:id, username=:username, apikey=:apikey, apisignature=:apisignature, created_at=:created_at";
+        $sql = "INSERT INTO " . $this->tableuser . " SET  id=:id, username=:username, apikey=:apikey, apisignature=:apisignature, created_at=:created_at, station=:station, latitude=:latitude, longitude=:longitude";
 
         // Préparation de la requête
         $query = $this->connexion->prepare($sql);
@@ -147,6 +157,9 @@ class Weewx{
         $query->bindParam(':username', $this->username);
         $query->bindParam(':apikey', $this->apikey);
         $query->bindParam(':apisignature', $this->apisignature);
+        $query->bindParam(':station', $this->station);
+        $query->bindParam(':latitude', $this->latitude);
+        $query->bindParam(':longitude', $this->longitude);
         $query->bindParam(':created_at', $this->created_at);
 
         // Exécution de la requête
@@ -165,7 +178,8 @@ class Weewx{
       public function current(){
         // On écrit la requête
         // On écrit la requête
-        $sql = "SELECT * FROM " . $this->table .  " ORDER BY dateTime DESC LIMIT 1";
+        $sql = "SELECT * FROM " . $this->table .  "  NATURAL JOIN ". $this->tableuser."  ORDER BY dateTime DESC LIMIT 1";
+
         
         // On prépare la requête
         $query = $this->connexion->prepare( $sql );
@@ -187,7 +201,7 @@ class Weewx{
     public function historic(){
         // On écrit la requête
         // On écrit la requête
-        $sql = "SELECT * FROM " . $this->table .  " WHERE dateTime BETWEEN :dateTime AND :dateTime1 ";
+        $sql = "SELECT * FROM " . $this->table .  "  NATURAL JOIN ". $this->tableuser. " WHERE dateTime BETWEEN :dateTime AND :dateTime1 ";
         
         // On prépare la requête
         $query = $this->connexion->prepare( $sql );
