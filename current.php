@@ -45,34 +45,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
 
-
-
         if ($timestamp <= 300) { // Si le $timestamp est == ou < a 300s ou 5m  et le  $verify24hTimestamp est <= 24h  la requete est bonne on continnue sinon un erreur 404 est envoyé
 
             // On récupère les données du user
+
             $produit->getuser();
-          
+
 
             if (!empty($produit->id == $id and $produit->apikey == $apikey and $produit->apisignature == $apisignature)) {
                 // On verifie si les données de la query string sont correctes
 
 
                 // On récupère les données
+
+                $produit->rainyear();
+                $produit->rainyear;
+
+                $produit->rainmonth();
+                $produit->rainmonth;
+                //Round pour avoir 1 chiffre après la virgule :) 
+                $rainyear =round( $produit->rainyear,1);
+                $rainmonth =round( $produit->rainmonth,1);
+
+                 // On récupère les données current
                 $stmt = $produit->current();
+
 
                 // On vérifie si on a au moins 1 produit
                 if ($stmt->rowCount() > 0) {
                     // On initialise un tableau associatif
-                    $tableauProduits['sensors']=[];
-                    $tableauProduits['user']=[];
-                    $tableauProduits['sensors']=[];
+                    $tableauProduits['sensors'] = [];
+                    $tableauProduits['user'] = [];
+                    $tableauProduits['sensors'] = [];
 
 
                     // On parcourt les produits
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         extract($row);
 
-                        $user =[
+                        $user = [
 
                             "station" => $station,
                             "latitude" => $latitude,
@@ -97,6 +108,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             "bar_absolute" => $pressure,
                             "rainfall_last_24_hr_in" => $rain,
                             "rain_rate_last_in" => $rainRate,
+                            "rain_month"   => $rainmonth,
+                            "rain_year"   => $rainyear,
                             "wind_chill" => $windchill,
                             "wind_dir_last" => $windDir,
                             "wind_speed_hi_last_10_min" => $windGust,
@@ -112,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
 
-                        $tableauProduits['user'][]= $user;
+                        $tableauProduits['user'][] = $user;
                         $tableauProduits['sensors'][]['data'][]['data'] = $prod;
                     }
 
@@ -135,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             // if ($timestamp <= 300 and $verify24hTimestamp <= 24)
             // 405 Method Not Allowed
             http_response_code(405);
-            echo json_encode(["message" => "Vous avez dépassé le limit de 5m ou 24h"], JSON_UNESCAPED_UNICODE);
+            echo json_encode(["message" => "Vous avez dépassé le limit de 5m"], JSON_UNESCAPED_UNICODE);
         }
     } else {
         // if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']).....
