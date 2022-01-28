@@ -148,6 +148,7 @@ echo "ApiSignature: " . $apisignature . "\n";
 echo "Station : " . $station . "\n";
 echo "Latitude: " . $latitude . "\n";
 echo "Longitude: " . $longitude . "\n";
+echo "timezone: " . date('T O'); . "\n";
 echo $created = date('Y-m-d H:i:s') . "\n";
 echo "-------------------------------------------------------------------------------------------- \n";
 
@@ -164,6 +165,7 @@ if (!empty($name) && !empty($id) && !empty($apikey) && !empty($apisignature)  &&
   $produit->station = $station;
   $produit->latitude = $latitude;
   $produit->longitude = $longitude;
+  $produit ->time_zone= date('T O');
 
 
   if ($produit->creer()) {

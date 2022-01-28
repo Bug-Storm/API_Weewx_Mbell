@@ -90,6 +90,7 @@ class Weewx
             `station` varchar(20) NOT NULL,
             `latitude` varchar(255) NOT NULL,
             `longitude` varchar(255) NOT NULL,
+            `time_zone` varchar(255) NOT NULL,
             `created_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
             UNIQUE KEY `username` (`username`)
