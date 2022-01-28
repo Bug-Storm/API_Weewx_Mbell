@@ -157,7 +157,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
                             "datetime" => (string)$dateTime,
                             "interval" =>(string) $interval,
-                            "usUnits"  => (string)$usUnits,
                             "altimeter_inHg" =>(string) $altimeter,
                             "appTemp_F" =>(string) $appTemp,
                             "bar_sea_level_inHg" => (string)$barometer,
