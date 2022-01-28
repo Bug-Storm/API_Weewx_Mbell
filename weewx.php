@@ -77,7 +77,7 @@ class Weewx
         $row = $query->fetch(PDO::FETCH_ASSOC);
 
         // On hydrate l'objet
-        $this->id = $row['id'];
+        $this->id = $row['id']  ?? 'default';
         if ($row !== FALSE) {
         } else {
 

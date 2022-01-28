@@ -148,13 +148,13 @@ echo "ApiSignature: " . $apisignature . "\n";
 echo "Station : " . $station . "\n";
 echo "Latitude: " . $latitude . "\n";
 echo "Longitude: " . $longitude . "\n";
-echo "timezone: " . date('T O') . "\n";
+echo $time_zone= date('T O') . "\n";
 echo $created = date('Y-m-d H:i:s') . "\n";
 echo "-------------------------------------------------------------------------------------------- \n";
 
 
 
-if (!empty($name) && !empty($id) && !empty($apikey) && !empty($apisignature)  && !empty($created) && !empty($latitude) && !empty($longitude) && !empty($station)) {
+if (!empty($name) && !empty($id) && !empty($apikey) && !empty($apisignature)  && !empty($created) && !empty($latitude) && !empty($longitude) && !empty($station) && !empty($time_zone)) {
   // Ici on a reçu les données
   // On hydrate notre objet
   $produit->username = $name;
@@ -165,7 +165,7 @@ if (!empty($name) && !empty($id) && !empty($apikey) && !empty($apisignature)  &&
   $produit->station = $station;
   $produit->latitude = $latitude;
   $produit->longitude = $longitude;
-  $produit ->time_zone= date('T O');
+  $produit ->time_zone= $time_zone;
 
 
   if ($produit->creer()) {
