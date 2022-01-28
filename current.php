@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             "station" => $station,
                             "latitude" => $latitude,
                             "longitude" => $longitude,
-                            "timezone" => $timezone,
+                            "time_zone" => $time_zone,
                         ];
 
                         $prod = [

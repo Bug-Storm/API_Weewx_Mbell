@@ -37,6 +37,7 @@ class Weewx
     public $latitude;
     public $longitude;
     public $station;
+    public $time_zone;
 
 
 
@@ -140,6 +141,7 @@ class Weewx
         $this->latitude = $row['latitude'];
         $this->longitude = $row['longitude'];
         $this->station = $row['station'];
+        $this->time_zone = $row['time_zone'];
     }
 
     /**
@@ -151,7 +153,7 @@ class Weewx
     {
 
         // Ecriture de la requête SQL en y insérant le nom de la table
-        $sql = "INSERT INTO " . $this->tableuser . " SET  id=:id, username=:username, apikey=:apikey, apisignature=:apisignature, created_at=:created_at, station=:station, latitude=:latitude, longitude=:longitude";
+        $sql = "INSERT INTO " . $this->tableuser . " SET  id=:id, username=:username, apikey=:apikey, apisignature=:apisignature, created_at=:created_at, station=:station, latitude=:latitude, longitude=:longitude, time_zone=:time_zone";
 
         // Préparation de la requête
         $query = $this->connexion->prepare($sql);
@@ -166,6 +168,7 @@ class Weewx
         $query->bindParam(':station', $this->station);
         $query->bindParam(':latitude', $this->latitude);
         $query->bindParam(':longitude', $this->longitude);
+        $query->bindParam(':time_zone', $this->time_zone);
         $query->bindParam(':created_at', $this->created_at);
 
         // Exécution de la requête
