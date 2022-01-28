@@ -148,7 +148,7 @@ echo "ApiSignature: " . $apisignature . "\n";
 echo "Station : " . $station . "\n";
 echo "Latitude: " . $latitude . "\n";
 echo "Longitude: " . $longitude . "\n";
-echo "timezone: " . date('T O'); . "\n";
+echo "timezone: " . date('T O') . "\n";
 echo $created = date('Y-m-d H:i:s') . "\n";
 echo "-------------------------------------------------------------------------------------------- \n";
 
