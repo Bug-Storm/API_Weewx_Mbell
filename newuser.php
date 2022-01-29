@@ -63,6 +63,11 @@ if (trim($line) == '') {
   $bytes = random_bytes(5);
   $apikey = (bin2hex($bytes));
 
+   //TIMEZONE
+   $gmdate= gmdate('e');
+   $date= date(' O');
+   $time_zone = $gmdate . $date;
+
   echo "\n\n\n";
 
 
@@ -148,7 +153,7 @@ echo "ApiSignature: " . $apisignature . "\n";
 echo "Station : " . $station . "\n";
 echo "Latitude: " . $latitude . "\n";
 echo "Longitude: " . $longitude . "\n";
-echo $time_zone= date('T O') . "\n";
+echo "time_zone:" . $time_zone . "\n";
 echo $created = date('Y-m-d H:i:s') . "\n";
 echo "-------------------------------------------------------------------------------------------- \n";
 
