@@ -214,14 +214,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             "rain_year_in"   => is_null ($rainyear) ? NULL  :(float) $rainyear,
                             "wind_chill_F" =>is_null($windchill) ? NULL :(float) $windchill,
                             "wind_dir_last" =>is_null ($windDir) ? NULL :(float) $windDir,
-                            "wind_speed_hi_last_10_min_mile" => is_null($windGust) ? NULL :(float) $windGust,
-                            "wind_gust_dir_last_" => is_null($windGust) ? NULL :(float) $windGustDir,
-                            "wind_speed_avg_last_10_min_mile" =>is_null($windSpeed)  ? NULL :(float) $windSpeed,
+                            "wind_speed_hi_last_10_min_mph" => is_null($windGust) ? NULL :(float) $windGust,
+                            "wind_gust_dir_last" => is_null($windGust) ? NULL :(float) $windGustDir,
+                            "wind_speed_avg_last_10_min_mph" =>is_null($windSpeed)  ? NULL :(float) $windSpeed,
                             "uv_index"        => is_null($UV) ? NULL:(float)$UV,
                             "solar_rad" =>is_null($radiation) ? NULL:(float)$radiation,
+                            //Inside//
                             "temp_in_in"      =>is_null($inTemp) ? NULL :(float) $inTemp,
                             "dew_point_in_in"  =>is_null($inDewpoint) ? NULL :(float) $inDewpoint,
-                            "hum_in_"        => is_null($inHumidity) ? NULL :(float)$inHumidity,
+                            "hum_in"        => is_null($inHumidity) ? NULL :(float)$inHumidity,
                             "Last_record" =>is_null($echo =  str_replace("/", "/", date('d-m-Y H:i', $dateTime))) ? NULL :(string) $echo =  str_replace("/", "/", date('d-m-Y H:i', $dateTime)),
                         ];
 
