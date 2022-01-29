@@ -98,17 +98,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             $outTemp = round((($outTemp * 9 / 5) + 32),3);
                             $inTemp = round((($inTemp * 9 / 5) + 32),3);
                             $inDewpoint =round((($inDewpoint * 9 / 5) + 32),3);
-
-
-
+                            $heatindex =round((($heatindex * 9 / 5) + 32),3);
+                            $humidex = round((($humidex * 9 / 5) + 32),3);
+                            $windchill= round((($windchill * 9 / 5) + 32),3);
                             //Wind//
                             $windGust = round($windGust / 1.609344,3);
-                            $windSpeed =round($windSpeed / 1.609344,3);
+                            $windSpeed =round($windSpeed / 1.609344,3); 
+                            $windDir = round($windDir ,3); 
 
                             //Pressure//
                             $altimeter = round($altimeter / 33.8639,3);
                             $barometer = round($barometer / 33.8639,3);
                             $pressure = round($pressure / 33.8639,3);
+                            //Humidity 
+                            $outHumidity= round($outHumidity,1 );
+                            $inHumidity= round($inHumidity,1 );
 
                         } elseif ($usUnits == 17) {
                             //Rain//
@@ -126,21 +130,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             $outTemp = round(($outTemp - 32) * (5 / 9),3);
                             $inTemp = round(($inTemp - 32) * (5 / 9),3);
                             $inDewpoint = round(($inDewpoint - 32) * (5 / 9),3);
+                            $humidex =round(($humidex - 32) * (5 / 9),3);
+                            $windchill= round(($windchill - 32) * (5 / 9),3);
                             // ------// 
 
 
                             //Wind//
                             $windGust = round($windGust * 2.2369362921,3);
                             $windSpeed = round($windSpeed * 2.2369362921,3);
-
+                            $windDir =round($windDir ,3);
                             //Pressure//
                             $altimeter = round($altimeter / 33.8639,3);
                             $barometer = round($barometer * 0.029530,3);
                             $pressure = round($pressure * 0.029530,3);
 
-                        } else {
+                              //Humidity 
+                              $outHumidity= round($outHumidity,1 );
+                              $inHumidity= round($inHumidity,1 );
 
-                            //Nothing 
+                        } else{
+                            $rainmonth = round($rainmonth,3);
+                            $rainyear = round($rainyear ,3);
+                            $rainRate = round($rainRate, 3);
+                            $rain = round($rain ,3);
+                            //       //
+
+                            //Temp//
+                            $appTemp = round($appTemp,3);
+                            $windchill = round($windchill,3);
+                            $heatindex = round($heatindex,3);
+                            $dewpoint = round($dewpoint,3);
+                            $outTemp = round($outTemp,3);
+                            $inTemp = round($inTemp,3);
+                            $inDewpoint = round($inDewpoint,3);
+                            $humidex =round($humidex,3);
+                            $windchill= round($windchill,3);
+                            // ------// 
+
+
+                            //Wind//
+                            $windGust = round($windGust ,3);
+                            $windSpeed = round($windSpeed ,3);
+                            $windDir =round($windDir ,3);
+
+                            //Pressure//
+                            $altimeter = round($altimeter,3);
+                            $barometer = round($barometer ,3);
+                            $pressure = round($pressure ,3);
+
+                              //Humidity 
+                              $outHumidity= round($outHumidity,1 );
+                              $inHumidity= round($inHumidity,1 );
+
+                            
                         }
 
                         $user = [
