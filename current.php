@@ -190,7 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             "station" =>is_null($station) ? NULL :(string)$station,
                             "latitude" =>is_null($latitude) ? NULL :(float) $latitude,
                             "longitude" =>is_null($longitude) ? NULL :(float) $longitude,
-                            "time_zone" => is_null(preg_replace('/\s+/', '', $time_zone)) ? NULL  :(string) preg_replace('/\s+/', '', $time_zone),
+                            "time_zone" => is_null(preg_replace('/\s+/', ' ', $time_zone)) ? NULL  :(string) preg_replace('/\s+/', ' ', $time_zone),
                         ];
 
                         $prod = [
