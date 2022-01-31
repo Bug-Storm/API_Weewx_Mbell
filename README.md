@@ -73,18 +73,18 @@ On peut maintenant se placer dans le répertoire du script afin de modifier le f
 *************************************************************************************************************************
 Si vous n'avez pas encore la table users, cela va se faire automatiquement.
 -------------------------------------------------------------------------------------------------------------------------
-Au cas où il y a un erreur, vous avez le fichier `users.sql ` . Cela vous permet d'importer le fichier sur phpmyadmin ;)
+Au cas où il y a un erreur, vous avez le fichier "users.sql"  . Cela vous permet d'importer le fichier sur phpmyadmin ;)
 ------------------------------------------------------------------------------------------------------------------------
 **************************************************************************************************************************
 
-puis vous allez rentrer le Nom que vous voulez.  Le script va donc créer un Id + une API Key et une API Signature.  
+puis vous allez rentrer le Nom d'utilisateur que vous voulez, le nom de la station et puis la latitude/longitue(vous pouvez prendre celui sur IC).  Le script va donc créer un Id + une API Key et une API Signature.  
 
-Une fois le nouveau user créer, vous pouvez laisser la ligne de commande ouverte!!
+Une fois le nouveau utilisateur  créer, vous pouvez laisser la ligne de commande ouverte!!
 
 
 __Recuperation des données__
 
-Pour que l'api puisse bien récupérer les données de la BDD, vous avez besoin de 4 paramètres pour le mode current: 
+Pour que l'api puisse bien récupérer les données de la BDD, vous avez besoin de 4 paramètres pour le mode "current": 
 
 ---------------------------------------------------------------------
 t =  ` Timestamp(valable 5m)`
@@ -96,7 +96,7 @@ api key = ` L'api Key qu'a été crée avec l'user `
 api signature = ` L'api signature qu'a été crée avec l'user `
 
 --------------------------------------------------------------------
-Et pour le mode historic vous avez besoin de 6 paramètres:
+Et pour le mode "historic" vous avez besoin de 6 paramètres:
 
 t =  ` Timestamp(valable 5m)`
 
