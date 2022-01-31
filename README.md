@@ -5,13 +5,14 @@
 
 __Description__  
 
- Ce script permet d'importer  les  données de votre base de données afin de pouvoir exporter en format JSON.  Ce script est fait pour les stations fonctionnant sous le logiciel WeeWX ou d'autres ayant une base de données MySQL.  
+ Ce script permet d'importer  les  données de votre base de données afin de pouvoir exporter en format JSON.  Ce script est fait pour les stations fonctionnant sous le logiciel WeeWX ou d'autres ayant une base de données MySQL. Ceci a été adapté pour être utilisé avec MBELL. https://github.com/Networkbell/mbell
 
 
  __Requis__ 
 
  * Une station météo fonctionnant déjà avec une base des données MySQL.
  * Un accès en ligne de commande à votre Raspberry Pi. Si vous avez installé WeeWX ce ne devrait pas être un souci.   
+ * Le CMS MBELL déjà installé. 
 
 
 
@@ -24,7 +25,7 @@ __Description__
 
  ` cd /var/www/html `  
 
- ` git clone https://github.com/Bug-Storm/Api_Weewx_MBELL `    
+ ` git clone https://github.com/Bug-Storm/API_Weewx_MBELL `    
 
 
 
@@ -32,7 +33,7 @@ __Description__
 
 On peut maintenant se placer dans le répertoire du script afin de modifier le fichier de configuration.
 
- ` cd /var/www/html/Api_Weewx_MBELL `  
+ ` cd /var/www/html/API_Weewx_MBELL `  
  
   ` nano Database.php `
 
@@ -54,32 +55,34 @@ On peut maintenant se placer dans le répertoire du script afin de modifier le f
 
   `* private $host:`   qui est l'adresse de l'hôte de la base de données. Probablement localhost si la base de données est hébergée sur votre Raspberry Pi.  
 
- `* private $db_name:`   le nom de la base de données. Par défaut WeeWX c'est  ` weewx `.  
+ `* private $db_name:`   le nom de la base de données. Par défaut le nom de la bdd  Weewx c'est  ` weewx `.  
 
- `* private $username:`   le nom d'utilisateur qui a accès à la BDD.
+ `* private $username:`   le nom d'utilisateur qu'à l'accès à la BDD.
 
  `* private $password:`   le mot de passe de cet utilisateur.  
+ 
+ Pour sauvergarder il suffit de faire Ctrl + S -> Ctrl + X 
 
  
- __Creation d'un nouveau user__
+ __Creation d'un nouveau utilisateur__
  
  Pour créer un nouveau user il suffit d'ouvrir une ligne de commande et de taper:
 
  ` php newuser.php `
 
-![Simplon.co](https://i.imgur.com/tsw3Hqe.gif)
+![Simplon.co](https://i.imgur.com/9kCwrKu.gif)
 
 
 *************************************************************************************************************************
 Si vous n'avez pas encore la table users, cela va se faire automatiquement.
 -------------------------------------------------------------------------------------------------------------------------
-Au cas où il y a un erreur, vous avez le fichier "users.sql"  . Cela vous permet d'importer le fichier sur phpmyadmin ;)
+Au cas où il y a un erreur, vous avez le fichier "users.sql". Cela vous permet d'importer le fichier sur phpmyadmin ;)
 ------------------------------------------------------------------------------------------------------------------------
 **************************************************************************************************************************
 
-puis vous allez rentrer le Nom d'utilisateur que vous voulez, le nom de la station et puis la latitude/longitue(vous pouvez prendre celui sur IC).  Le script va donc créer un Id + une API Key et une API Signature.  
+puis vous allez rentrer le Nom d'utilisateur que vous voulez, le nom de la station et puis la latitude/longitue(vous pouvez prendre celui sur IC). Le script va donc créer un Id + une API Key et une API Signature.  
 
-Une fois le nouveau utilisateur  créer, vous pouvez laisser la ligne de commande ouverte!!
+Une fois le nouveau utilisateur créer, vous pouvez laisser la ligne de commande ouverte!!
 
 
 __Recuperation des données__
