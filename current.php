@@ -220,8 +220,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             "uv_index"        => is_null($UV) ? NULL:(float)$UV,
                             "solar_rad" =>is_null($radiation) ? NULL:(float)$radiation,
                             //Inside//
-                            "temp_in_in"      =>is_null($inTemp) ? NULL :(float) $inTemp,
-                            "dew_point_in_in"  =>is_null($inDewpoint) ? NULL :(float) $inDewpoint,
+                            "temp_in_F"      =>is_null($inTemp) ? NULL :(float) $inTemp,
+                            "dew_point_in_F"  =>is_null($inDewpoint) ? NULL :(float) $inDewpoint,
                             "hum_in"        => is_null($inHumidity) ? NULL :(float)$inHumidity,
                             "Last_record" =>is_null($echo =  str_replace("/", "/", date('d-m-Y H:i', $dateTime))) ? NULL :(string) $echo =  str_replace("/", "/", date('d-m-Y H:i', $dateTime)),
                         ];
