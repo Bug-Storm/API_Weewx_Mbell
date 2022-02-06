@@ -9,6 +9,7 @@ class Weewx
     private $tableuser = "users";
 
     // object properties
+    public $bar_trend;
     public $rainmonth;
     public $rainyear;
     public $dateTime;
@@ -38,7 +39,7 @@ class Weewx
     public $longitude;
     public $station;
     public $time_zone;
-
+    
 
 
 
@@ -237,9 +238,36 @@ class Weewx
     }
 
 
+    public function bar_trend()
+    {
+
+    
+        //On récupère l'heure actu puis on va arrondir pour avoir les données par 5m//
+        $now = time();     
+        $next_five = ceil($now/300)*300;
+        
+        $futureDate = $next_five-(60*5); //L'heure du dernier rèlevé
+        $pastDate = $next_five-(60*180);  //L'heure du dernier rèlevé 3H avant
+
+
+        // On écrit la requête
+        $sql = "SELECT  ROUND(barometer, 10) AS bar_trend FROM " . $this->table . " WHERE dateTime = " .$pastDate. "  OR dateTime =  " .$futureDate. "";
+
+        // On prépare la requête
+        $query = $this->connexion->prepare($sql);
+
+        // On exécute la requête
+        $query->execute();
+
+        // On hydrate l'objet
+        return $query;
+
+       
+    }
+
     public function current()
     {
-        // On écrit la requête
+        
         // On écrit la requête
         $sql = "SELECT * FROM " . $this->table .  "  NATURAL JOIN " . $this->tableuser . "  ORDER BY dateTime DESC LIMIT 1";
 
@@ -250,10 +278,12 @@ class Weewx
         // On exécute la requête
         $query->execute();
 
+ // On hydrate l'objet
         return $query;
+
     }
     /*
-     * Lecture des historic 
+     * Lecture des historic
      *
      * @return void
      */
@@ -272,7 +302,7 @@ class Weewx
 
         // On exécute la requête
         $query->execute();
-
+ // On hydrate l'objet
         return $query;
     }
 }
