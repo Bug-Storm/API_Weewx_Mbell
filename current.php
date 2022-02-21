@@ -328,10 +328,10 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
                     //Utilisateur//
                     $user = [
 
-                        "station" => is_null($station) ? NULL : (string)$station,
-                        "latitude" => is_null($latitude) ? NULL : (float) $latitude,
-                        "longitude" => is_null($longitude) ? NULL : (float) $longitude,
-                        "time_zone" => is_null(preg_replace('/\s+/', ' ', $time_zone)) ? NULL  : (string) preg_replace('/\s+/', ' ', $time_zone),
+                        "station"                        => is_null($station) ? NULL : (string)$station,
+                        "latitude"                       => is_null($latitude) ? NULL : (float) $latitude,
+                        "longitude"                      => is_null($longitude) ? NULL : (float) $longitude,
+                        "time_zone"                      => is_null(preg_replace('/\s+/', ' ', $time_zone)) ? NULL  : (string) preg_replace('/\s+/', ' ', $time_zone),
                     ];
 
                     //Archive//
@@ -339,73 +339,73 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
 
 
 
-                        "datetime" => is_null($dateTime) ? NULL : (float)$dateTime,
-                        "interval" => is_null($interval) ? NULL : (float)$interval,
-                        "altimeter_inHg" => is_null($altimeter) ? NULL : (float) $altimeter,
-                        "appTemp_F" => is_null($appTemp) ? NULL : (float) $appTemp,
-                        "bar_sea_level_inHg" => is_null($barometer) ? NULL : (float)$barometer,
-                        "dew_point_F" => is_null($dewpoint) ? NULL : (float)$dewpoint,
-                        "heat_index_F" => is_null($heatindex) ? NULL : (float)$heatindex,
-                        "humidex" => is_null($humidex) ? NULL : (float)$humidex,
-                        "temp_F" => is_null($outTemp) ? NULL : (float) $outTemp,
-                        "hum" => is_null($outHumidity) ? NULL : (float)$outHumidity,
-                        "bar_absolute_inHg" => is_null($pressure) ? NULL : (float)$pressure,
-                        "bar_trend" => is_null($trend_bar) ? NULL : (float)$trend_bar,
-                        "rainfall_last_24_hr_in" => is_null($rain) ? NULL : (float) $rain,
-                        "rain_rate_last_in" => is_null($rainRate) ? NULL : (float) $rainRate,
-                        "rain_month_in"   => is_null($rainmonth) ? NULL  : (float)$rainmonth,
-                        "rain_year_in"   => is_null($rainyear) ? NULL  : (float) $rainyear,
-                        "wind_chill_F" => is_null($windchill) ? NULL : (float) $windchill,
-                        "wind_dir_last" => is_null($windDir) ? NULL : (float) $windDir,
-                        "wind_speed_hi_last_10_min_mph" => is_null($windGust) ? NULL : (float) $windGust,
-                        "wind_gust_dir_last" => is_null($windGust) ? NULL : (float) $windGustDir,
+                        "datetime"                       => is_null($dateTime) ? NULL : (float)$dateTime,
+                        "interval"                       => is_null($interval) ? NULL : (float)$interval,
+                        "altimeter_inHg"                 => is_null($altimeter) ? NULL : (float) $altimeter,
+                        "appTemp_F"                      => is_null($appTemp) ? NULL : (float) $appTemp,
+                        "bar_sea_level_inHg"             => is_null($barometer) ? NULL : (float)$barometer,
+                        "dew_point_F"                    => is_null($dewpoint) ? NULL : (float)$dewpoint,
+                        "heat_index_F"                   => is_null($heatindex) ? NULL : (float)$heatindex,
+                        "humidex"                        => is_null($humidex) ? NULL : (float)$humidex,
+                        "temp_F"                         => is_null($outTemp) ? NULL : (float) $outTemp,
+                        "hum"                            => is_null($outHumidity) ? NULL : (float)$outHumidity,
+                        "bar_absolute_inHg"              => is_null($pressure) ? NULL : (float)$pressure,
+                        "bar_trend"                      => is_null($trend_bar) ? NULL : (float)$trend_bar,
+                        "rainfall_last_24_hr_in"         => is_null($rain) ? NULL : (float) $rain,
+                        "rain_rate_last_in"              => is_null($rainRate) ? NULL : (float) $rainRate,
+                        "rain_month_in"                  => is_null($rainmonth) ? NULL  : (float)$rainmonth,
+                        "rain_year_in"                   => is_null($rainyear) ? NULL  : (float) $rainyear,
+                        "wind_chill_F"                   => is_null($windchill) ? NULL : (float) $windchill,
+                        "wind_dir_last"                  => is_null($windDir) ? NULL : (float) $windDir,
+                        "wind_speed_hi_last_10_min_mph"  => is_null($windGust) ? NULL : (float) $windGust,
+                        "wind_gust_dir_last"             => is_null($windGust) ? NULL : (float) $windGustDir,
                         "wind_speed_avg_last_10_min_mph" => is_null($windSpeed)  ? NULL : (float) $windSpeed,
-                        "uv_index"        => is_null($UV) ? NULL : (float)$UV,
-                        "solar_rad" => is_null($radiation) ? NULL : (float)$radiation,
-                        "Max_solar_rad" => is_null($maxSolarRad) ? NULL : (float)$maxSolarRad,
-                        "ET"  => is_null($ET) ? NULL : (float)$ET,
+                        "uv_index"                       => is_null($UV) ? NULL : (float)$UV,
+                        "solar_rad"                      => is_null($radiation) ? NULL : (float)$radiation,
+                        "Max_solar_rad"                  => is_null($maxSolarRad) ? NULL : (float)$maxSolarRad,
+                        "ET"                             => is_null($ET) ? NULL : (float)$ET,
 
                         //ExtraTemp//
-                        "temp_extra_1_F" => is_null($extraTemp1) ? NULL : (float)$extraTemp1,
-                        "temp_extra_2_F" => is_null($extraTemp2) ? NULL : (float)$extraTemp2,
-                        "temp_extra_3_F" => is_null($extraTemp3) ? NULL : (float)$extraTemp3,
-                        "temp_extra_4_F" => is_null($extraTemp4) ? NULL : (float)$extraTemp4,
-                        "temp_extra_5_F" => is_null($extraTemp5) ? NULL : (float)$extraTemp5,
-                        "temp_extra_6_F" => is_null($extraTemp6) ? NULL : (float)$extraTemp6,
-                        "temp_extra_7_F" => is_null($extraTemp7) ? NULL : (float)$extraTemp7,
-                        "temp_extra_8_F" => is_null($extraTemp8) ? NULL : (float)$extraTemp8,
+                        "temp_extra_1_F"                 => is_null($extraTemp1) ? NULL : (float)$extraTemp1,
+                        "temp_extra_2_F"                 => is_null($extraTemp2) ? NULL : (float)$extraTemp2,
+                        "temp_extra_3_F"                 => is_null($extraTemp3) ? NULL : (float)$extraTemp3,
+                        "temp_extra_4_F"                 => is_null($extraTemp4) ? NULL : (float)$extraTemp4,
+                        "temp_extra_5_F"                 => is_null($extraTemp5) ? NULL : (float)$extraTemp5,
+                        "temp_extra_6_F"                 => is_null($extraTemp6) ? NULL : (float)$extraTemp6,
+                        "temp_extra_7_F"                 => is_null($extraTemp7) ? NULL : (float)$extraTemp7,
+                        "temp_extra_8_F"                 => is_null($extraTemp8) ? NULL : (float)$extraTemp8,
 
                         //leafwet//
-                        " leaf_wetness_1" => is_null($leafWet1) ? NULL : (float)$leafWet1,
-                        " leaf_wetness_2" => is_null($leafWet2) ? NULL : (float)$leafWet2,
+                        " leaf_wetness_1"                => is_null($leafWet1) ? NULL : (float)$leafWet1,
+                        " leaf_wetness_2"                => is_null($leafWet2) ? NULL : (float)$leafWet2,
 
                          //soilMoist//
-                         " soil_moisture_1" => is_null($soilMoist1) ? NULL : (float)$soilMoist1,
-                         " soil_moisture_2" => is_null($soilMoist2) ? NULL : (float)$soilMoist2,
-                         " soil_moisture_3" => is_null($soilMoist3) ? NULL : (float)$soilMoist3,
-                         " soil_moisture_4" => is_null($soilMoist4) ? NULL : (float)$soilMoist4,
+                         "soil_moisture_1"               => is_null($soilMoist1) ? NULL : (float)$soilMoist1,
+                         "soil_moisture_2"               => is_null($soilMoist2) ? NULL : (float)$soilMoist2,
+                         "soil_moisture_3"               => is_null($soilMoist3) ? NULL : (float)$soilMoist3,
+                         "soil_moisture_4"               => is_null($soilMoist4) ? NULL : (float)$soilMoist4,
 
                             //soilTemp//
-                            " soil_Temp_1_F" => is_null($soilTemp1) ? NULL : (float)$soilTemp1,
-                            " soil_Temp_2_F" => is_null($soilTemp2) ? NULL : (float)$soilTemp2,
-                            " soil_Temp_3_F" => is_null($soilTemp3) ? NULL : (float)$soilTemp3,
-                            " soil_Temp_4_F" => is_null($soilTemp4) ? NULL : (float)$soilTemp4,
+                         "soil_Temp_1_F"                 => is_null($soilTemp1) ? NULL : (float)$soilTemp1,
+                        "soil_Temp_2_F"                  => is_null($soilTemp2) ? NULL : (float)$soilTemp2,
+                        "soil_Temp_3_F"                  => is_null($soilTemp3) ? NULL : (float)$soilTemp3,
+                        "soil_Temp_4_F"                  => is_null($soilTemp4) ? NULL : (float)$soilTemp4,
 
                               //ExtraHumid/
-                        "humid_extra_1" => is_null($extraHumid1) ? NULL : (float)$extraHumid1,
-                        "humid_extra_2" => is_null($extraHumid2) ? NULL : (float)$extraHumid2,
-                        "humid_extra_3" => is_null($extraHumid3) ? NULL : (float)$extraHumid3,
-                        "humid_extra_4" => is_null($extraHumid4) ? NULL : (float)$extraHumid4,
-                        "humid_extra_5" => is_null($extraHumid5) ? NULL : (float)$extraHumid5,
-                        "humid_extra_6" => is_null($extraHumid6) ? NULL : (float)$extraHumid6,
-                        "humid_extra_7" => is_null($extraHumid7) ? NULL : (float)$extraHumid7,
-                        "humid_extra_8"  => is_null($extraHumid8) ? NULL : (float)$extraHumid8,
+                        "humid_extra_1"                  => is_null($extraHumid1) ? NULL : (float)$extraHumid1,
+                        "humid_extra_2"                  => is_null($extraHumid2) ? NULL : (float)$extraHumid2,
+                        "humid_extra_3"                  => is_null($extraHumid3) ? NULL : (float)$extraHumid3,
+                        "humid_extra_4"                  => is_null($extraHumid4) ? NULL : (float)$extraHumid4,
+                        "humid_extra_5"                  => is_null($extraHumid5) ? NULL : (float)$extraHumid5,
+                        "humid_extra_6"                  => is_null($extraHumid6) ? NULL : (float)$extraHumid6,
+                        "humid_extra_7"                  => is_null($extraHumid7) ? NULL : (float)$extraHumid7,
+                        "humid_extra_8"                  => is_null($extraHumid8) ? NULL : (float)$extraHumid8,
 
                         //Inside//
-                        "temp_in_F"      => is_null($inTemp) ? NULL : (float) $inTemp,
-                        "dew_point_in_F"  => is_null($inDewpoint) ? NULL : (float) $inDewpoint,
-                        "hum_in"        => is_null($inHumidity) ? NULL : (float)$inHumidity,
-                        "Last_record" => is_null($echo =  str_replace("/", "/", date('d-m-Y H:i', $dateTime))) ? NULL : (string) $echo =  str_replace("/", "/", date('d-m-Y H:i', $dateTime)),
+                        "temp_in_F"                      => is_null($inTemp) ? NULL : (float) $inTemp,
+                        "dew_point_in_F"                 => is_null($inDewpoint) ? NULL : (float) $inDewpoint,
+                        "hum_in"                         => is_null($inHumidity) ? NULL : (float)$inHumidity,
+                        "Last_record"                    => is_null($echo =  str_replace("/", "/", date('d-m-Y H:i', $dateTime))) ? NULL : (string) $echo =  str_replace("/", "/", date('d-m-Y H:i', $dateTime)),
                     ];
 
 
@@ -442,5 +442,5 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
     http_response_code(405);
 
     echo json_encode(array("message" => "La méthode n'est pas autorisée."), JSON_UNESCAPED_UNICODE);
-}
+    }
 }
