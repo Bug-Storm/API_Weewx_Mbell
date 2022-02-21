@@ -157,25 +157,25 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
 
                         //leafWet//
                       
-                        $leafWet1 = round((($leafWet1  , 1);
-                        $leafWet2 = round((($leafWet2  , 1);
+                        $leafWet1 = round($leafWet1  , 1);
+                        $leafWet2 = round($leafWet2  , 1);
 
                          //soilMoist//
-                         $soilMoist1 = round((($soilMoist1  , 1);
-                         $soilMoist2 = round((($soilMoist2  , 1);
-                         $soilMoist3 = round((($soilMoist3  , 1);
-                         $soilMoist4 = round((($soilMoist4  , 1);
+                         $soilMoist1 = round($soilMoist1  , 1);
+                         $soilMoist2 = round($soilMoist2  , 1);
+                         $soilMoist3 = round($soilMoist3  , 1);
+                         $soilMoist4 = round($soilMoist4  , 1);
 
 
                           //ExtraHumid//
-                        $extraHumid1 = round((($extraHumid1 , 1);
-                        $extraHumid2 = round((($extraHumid2  , 1);
-                        $extraHumid3 = round((($extraHumid3  , 1);
-                        $extraHumid4 = round((($extraHumid4  , 1);
-                        $extraHumid5 = round((($extraHumid5  , 1);
-                        $extraHumid6 = round((($extraHumid6  , 1);
-                        $extraHumid7 = round((($extraHumid7  , 1);
-                        $extraHumid8 = round((($extraHumid8  , 1);
+                        $extraHumid1 = round($extraHumid1 , 1);
+                        $extraHumid2 = round($extraHumid2  , 1);
+                        $extraHumid3 = round($extraHumid3  , 1);
+                        $extraHumid4 = round($extraHumid4  , 1);
+                        $extraHumid5 = round($extraHumid5  , 1);
+                        $extraHumid6 = round($extraHumid6  , 1);
+                        $extraHumid7 = round($extraHumid7  , 1);
+                        $extraHumid8 = round($extraHumid8  , 1);
                         
                     } elseif ($usUnits == 17) {
 
@@ -198,18 +198,18 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
                         $windchill = round(($windchill - 32) * (5 / 9), 3);
                         // ------// 
                         //ExtraTemp//
-                        $extraTemp1 = round((($extraTemp1 - 32) * (5 / 9), 3);
-                        $extraTemp2 = round((($extraTemp2 - 32) * (5 / 9), 3);
-                        $extraTemp3 = round((($extraTemp3 - 32) * (5 / 9), 3);
-                        $extraTemp4 = round((($extraTemp4 - 32) * (5 / 9), 3);
-                        $extraTemp5 = round((($extraTemp5 - 32) * (5 / 9), 3);
-                        $extraTemp6 = round((($extraTemp6 - 32) * (5 / 9), 3);
-                        $extraTemp7 = round((($extraTemp7 - 32) * (5 / 9), 3);
-                        $extraTemp8 = round((($extraTemp8 - 32) * (5 / 9), 3);
+                        $extraTemp1 = round(($extraTemp1 - 32) * (5 / 9), 3);
+                        $extraTemp2 = round(($extraTemp2 - 32) * (5 / 9), 3);
+                        $extraTemp3 = round(($extraTemp3 - 32) * (5 / 9), 3);
+                        $extraTemp4 = round(($extraTemp4 - 32) * (5 / 9), 3);
+                        $extraTemp5 = round(($extraTemp5 - 32) * (5 / 9), 3);
+                        $extraTemp6 = round(($extraTemp6 - 32) * (5 / 9), 3);
+                        $extraTemp7 = round(($extraTemp7 - 32) * (5 / 9), 3);
+                        $extraTemp8 = round(($extraTemp8 - 32) * (5 / 9), 3);
                         
                         //LeafTemp//
-                        $leafTemp1 = round((($leafTemp1  - 32) * (5 / 9), 3);
-                        $leafTemp2 = round((($leafTemp2 - 32) * (5 / 9), 3);
+                        $leafTemp1 = round(($leafTemp1  - 32) * (5 / 9), 3);
+                        $leafTemp2 = round(($leafTemp2 - 32) * (5 / 9), 3);
 
                         //Wind//
                         $windGust = round($windGust * 2.2369362921, 3);
@@ -227,24 +227,24 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
 
                           //leafWet//
                       
-                          $leafWet1 = round((($leafWet1  , 1);
-                          $leafWet2 = round((($leafWet2  , 1);
+                          $leafWet1 = round($leafWet1  , 1);
+                          $leafWet2 = round($leafWet2  , 1);
 
                            //soilMoist//
-                        $soilMoist1 = round((($soilMoist1  , 1);
-                        $soilMoist2 = round((($soilMoist2  , 1);
-                        $soilMoist3 = round((($soilMoist3  , 1);
-                        $soilMoist4 = round((($soilMoist4  , 1);
+                        $soilMoist1 = round($soilMoist1  , 1);
+                        $soilMoist2 = round($soilMoist2  , 1);
+                        $soilMoist3 = round($soilMoist3  , 1);
+                        $soilMoist4 = round($soilMoist4  , 1);
   
                          //ExtraHumid//
-                         $extraHumid1 = round((($extraHumid1 , 1);
-                         $extraHumid2 = round((($extraHumid2  , 1);
-                         $extraHumid3 = round((($extraHumid3  , 1);
-                         $extraHumid4 = round((($extraHumid4  , 1);
-                         $extraHumid5 = round((($extraHumid5  , 1);
-                         $extraHumid6 = round((($extraHumid6  , 1);
-                         $extraHumid7 = round((($extraHumid7  , 1);
-                         $extraHumid8 = round((($extraHumid8  , 1);
+                         $extraHumid1 = round($extraHumid1 , 1);
+                         $extraHumid2 = round($extraHumid2  , 1);
+                         $extraHumid3 = round($extraHumid3  , 1);
+                         $extraHumid4 = round($extraHumid4  , 1);
+                         $extraHumid5 = round($extraHumid5  , 1);
+                         $extraHumid6 = round($extraHumid6  , 1);
+                         $extraHumid7 = round($extraHumid7  , 1);
+                         $extraHumid8 = round($extraHumid8  , 1);
 
                     } else {
 
@@ -267,24 +267,24 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
                         // ------// 
 
                         //ExtraTemp//
-                        $extraTemp1 = round((($extraTemp1 , 3);
-                        $extraTemp2 = round((($extraTemp2  , 3);
-                        $extraTemp3 = round((($extraTemp3  , 3);
-                        $extraTemp4 = round((($extraTemp4  , 3);
-                        $extraTemp5 = round((($extraTemp5  , 3);
-                        $extraTemp6 = round((($extraTemp6  , 3);
-                        $extraTemp7 = round((($extraTemp7  , 3);
-                        $extraTemp8 = round((($extraTemp8  , 3);
+                        $extraTemp1 = round($extraTemp1 , 3);
+                        $extraTemp2 = round($extraTemp2  , 3);
+                        $extraTemp3 = round($extraTemp3  , 3);
+                        $extraTemp4 = round($extraTemp4  , 3);
+                        $extraTemp5 = round($extraTemp5  , 3);
+                        $extraTemp6 = round($extraTemp6  , 3);
+                        $extraTemp7 = round($extraTemp7  , 3);
+                        $extraTemp8 = round($extraTemp8  , 3);
 
                         //LeafTemp//
-                        $leafTemp1 = round((($leafTemp1  , 3);
-                        $leafTemp2 = round((($leafTemp2  , 3);
+                        $leafTemp1 = round($leafTemp1  , 3);
+                        $leafTemp2 = round($leafTemp2  , 3);
 
                          //soilTemp//
-                         $soilTemp1 = round((($soilTemp1  , 1);
-                         $soilTemp2 = round((($soilTemp2  , 1);
-                         $soilTemp3 = round((($soilTemp3  , 1);
-                         $soilTemp4 = round((($soilTemp4  , 1);
+                         $soilTemp1 = round($soilTemp1  , 1);
+                         $soilTemp2 = round($soilTemp2  , 1);
+                         $soilTemp3 = round($soilTemp3  , 1);
+                         $soilTemp4 = round($soilTemp4  , 1);
                        
 
                         //Wind//
@@ -304,25 +304,25 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
 
                         //leafWet//
                       
-                        $leafWet1 = round((($leafWet1  , 1);
-                        $leafWet2 = round((($leafWet2  , 1);
+                        $leafWet1 = round($leafWet1  , 1);
+                        $leafWet2 = round($leafWet2  , 1);
 
                          //soilMoist//
-                         $soilMoist1 = round((($soilMoist1  , 1);
-                         $soilMoist2 = round((($soilMoist2  , 1);
-                         $soilMoist3 = round((($soilMoist3  , 1);
-                         $soilMoist4 = round((($soilMoist4  , 1);
+                         $soilMoist1 = round($soilMoist1  , 1);
+                         $soilMoist2 = round($soilMoist2  , 1);
+                         $soilMoist3 = round($soilMoist3  , 1);
+                         $soilMoist4 = round($soilMoist4  , 1);
 
 
                            //ExtraHumid//
-                        $extraHumid1 = round((($extraHumid1 , 1);
-                        $extraHumid2 = round((($extraHumid2  , 1);
-                        $extraHumid3 = round((($extraHumid3  , 1);
-                        $extraHumid4 = round((($extraHumid4  , 1);
-                        $extraHumid5 = round((($extraHumid5  , 1);
-                        $extraHumid6 = round((($extraHumid6  , 1);
-                        $extraHumid7 = round((($extraHumid7  , 1);
-                        $extraHumid8 = round((($extraHumid8  , 1);
+                        $extraHumid1 = round($extraHumid1 , 1);
+                        $extraHumid2 = round($extraHumid2  , 1);
+                        $extraHumid3 = round($extraHumid3  , 1);
+                        $extraHumid4 = round($extraHumid4  , 1);
+                        $extraHumid5 = round($extraHumid5  , 1);
+                        $extraHumid6 = round($extraHumid6  , 1);
+                        $extraHumid7 = round($extraHumid7  , 1);
+                        $extraHumid8 = round($extraHumid8  , 1);
 
                     }
                     //Utilisateur//
