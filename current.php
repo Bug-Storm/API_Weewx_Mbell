@@ -78,9 +78,9 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
 
                     if ($pression_last > $pression_first) {
 
-                        $trend_bar = "+" . round($calc, 2) . "";
-                    } else {
                         $trend_bar = "-" . round($calc, 2) . "";
+                    } else {
+                        $trend_bar = "+" . round($calc, 2) . "";
                     }
                 }
             }
@@ -125,6 +125,22 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
                         $humidex = round((($humidex * 9 / 5) + 32), 3);
                         $windchill = round((($windchill * 9 / 5) + 32), 3);
 
+                        //ExtraTemp//
+                        $extraTemp1 = round((($extraTemp1 * 9 / 5) + 32), 3);
+                        $extraTemp2 = round((($extraTemp2 * 9 / 5) + 32), 3);
+                        $extraTemp3 = round((($extraTemp3 * 9 / 5) + 32), 3);
+                        $extraTemp4 = round((($extraTemp4 * 9 / 5) + 32), 3);
+                        $extraTemp5 = round((($extraTemp5 * 9 / 5) + 32), 3);
+                        $extraTemp6 = round((($extraTemp6 * 9 / 5) + 32), 3);
+                        $extraTemp7 = round((($extraTemp7 * 9 / 5) + 32), 3);
+                        $extraTemp8 = round((($extraTemp8 * 9 / 5) + 32), 3);
+
+                         //LeafTemp//
+                         $leafTemp1 = round((($leafTemp1  * 9 / 5) + 32), 3);
+                         $leafTemp2 = round((($leafTemp2 * 9 / 5) + 32), 3);
+ 
+
+
                         //Wind//
                         $windGust = round($windGust / 1.609344, 3);
                         $windSpeed = round($windSpeed / 1.609344, 3);
@@ -139,6 +155,28 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
                         $outHumidity = round($outHumidity, 1);
                         $inHumidity = round($inHumidity, 1);
 
+                        //leafWet//
+                      
+                        $leafWet1 = round((($leafWet1  , 1);
+                        $leafWet2 = round((($leafWet2  , 1);
+
+                         //soilMoist//
+                         $soilMoist1 = round((($soilMoist1  , 1);
+                         $soilMoist2 = round((($soilMoist2  , 1);
+                         $soilMoist3 = round((($soilMoist3  , 1);
+                         $soilMoist4 = round((($soilMoist4  , 1);
+
+
+                          //ExtraHumid//
+                        $extraHumid1 = round((($extraHumid1 , 1);
+                        $extraHumid2 = round((($extraHumid2  , 1);
+                        $extraHumid3 = round((($extraHumid3  , 1);
+                        $extraHumid4 = round((($extraHumid4  , 1);
+                        $extraHumid5 = round((($extraHumid5  , 1);
+                        $extraHumid6 = round((($extraHumid6  , 1);
+                        $extraHumid7 = round((($extraHumid7  , 1);
+                        $extraHumid8 = round((($extraHumid8  , 1);
+                        
                     } elseif ($usUnits == 17) {
 
                         //Rain//
@@ -159,7 +197,19 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
                         $humidex = round(($humidex - 32) * (5 / 9), 3);
                         $windchill = round(($windchill - 32) * (5 / 9), 3);
                         // ------// 
-
+                        //ExtraTemp//
+                        $extraTemp1 = round((($extraTemp1 - 32) * (5 / 9), 3);
+                        $extraTemp2 = round((($extraTemp2 - 32) * (5 / 9), 3);
+                        $extraTemp3 = round((($extraTemp3 - 32) * (5 / 9), 3);
+                        $extraTemp4 = round((($extraTemp4 - 32) * (5 / 9), 3);
+                        $extraTemp5 = round((($extraTemp5 - 32) * (5 / 9), 3);
+                        $extraTemp6 = round((($extraTemp6 - 32) * (5 / 9), 3);
+                        $extraTemp7 = round((($extraTemp7 - 32) * (5 / 9), 3);
+                        $extraTemp8 = round((($extraTemp8 - 32) * (5 / 9), 3);
+                        
+                        //LeafTemp//
+                        $leafTemp1 = round((($leafTemp1  - 32) * (5 / 9), 3);
+                        $leafTemp2 = round((($leafTemp2 - 32) * (5 / 9), 3);
 
                         //Wind//
                         $windGust = round($windGust * 2.2369362921, 3);
@@ -174,6 +224,27 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
                         //Humidity 
                         $outHumidity = round($outHumidity, 1);
                         $inHumidity = round($inHumidity, 1);
+
+                          //leafWet//
+                      
+                          $leafWet1 = round((($leafWet1  , 1);
+                          $leafWet2 = round((($leafWet2  , 1);
+
+                           //soilMoist//
+                        $soilMoist1 = round((($soilMoist1  , 1);
+                        $soilMoist2 = round((($soilMoist2  , 1);
+                        $soilMoist3 = round((($soilMoist3  , 1);
+                        $soilMoist4 = round((($soilMoist4  , 1);
+  
+                         //ExtraHumid//
+                         $extraHumid1 = round((($extraHumid1 , 1);
+                         $extraHumid2 = round((($extraHumid2  , 1);
+                         $extraHumid3 = round((($extraHumid3  , 1);
+                         $extraHumid4 = round((($extraHumid4  , 1);
+                         $extraHumid5 = round((($extraHumid5  , 1);
+                         $extraHumid6 = round((($extraHumid6  , 1);
+                         $extraHumid7 = round((($extraHumid7  , 1);
+                         $extraHumid8 = round((($extraHumid8  , 1);
 
                     } else {
 
@@ -195,6 +266,26 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
                         $windchill = round($windchill, 3);
                         // ------// 
 
+                        //ExtraTemp//
+                        $extraTemp1 = round((($extraTemp1 , 3);
+                        $extraTemp2 = round((($extraTemp2  , 3);
+                        $extraTemp3 = round((($extraTemp3  , 3);
+                        $extraTemp4 = round((($extraTemp4  , 3);
+                        $extraTemp5 = round((($extraTemp5  , 3);
+                        $extraTemp6 = round((($extraTemp6  , 3);
+                        $extraTemp7 = round((($extraTemp7  , 3);
+                        $extraTemp8 = round((($extraTemp8  , 3);
+
+                        //LeafTemp//
+                        $leafTemp1 = round((($leafTemp1  , 3);
+                        $leafTemp2 = round((($leafTemp2  , 3);
+
+                         //soilTemp//
+                         $soilTemp1 = round((($soilTemp1  , 1);
+                         $soilTemp2 = round((($soilTemp2  , 1);
+                         $soilTemp3 = round((($soilTemp3  , 1);
+                         $soilTemp4 = round((($soilTemp4  , 1);
+                       
 
                         //Wind//
                         $windGust = round($windGust, 3);
@@ -210,6 +301,29 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
                         //Humidity 
                         $outHumidity = round($outHumidity, 1);
                         $inHumidity = round($inHumidity, 1);
+
+                        //leafWet//
+                      
+                        $leafWet1 = round((($leafWet1  , 1);
+                        $leafWet2 = round((($leafWet2  , 1);
+
+                         //soilMoist//
+                         $soilMoist1 = round((($soilMoist1  , 1);
+                         $soilMoist2 = round((($soilMoist2  , 1);
+                         $soilMoist3 = round((($soilMoist3  , 1);
+                         $soilMoist4 = round((($soilMoist4  , 1);
+
+
+                           //ExtraHumid//
+                        $extraHumid1 = round((($extraHumid1 , 1);
+                        $extraHumid2 = round((($extraHumid2  , 1);
+                        $extraHumid3 = round((($extraHumid3  , 1);
+                        $extraHumid4 = round((($extraHumid4  , 1);
+                        $extraHumid5 = round((($extraHumid5  , 1);
+                        $extraHumid6 = round((($extraHumid6  , 1);
+                        $extraHumid7 = round((($extraHumid7  , 1);
+                        $extraHumid8 = round((($extraHumid8  , 1);
+
                     }
                     //Utilisateur//
                     $user = [
@@ -248,6 +362,45 @@ if (isset($_GET['t']) && isset($_GET['id']) && isset($_GET['apikey']) && isset($
                         "wind_speed_avg_last_10_min_mph" => is_null($windSpeed)  ? NULL : (float) $windSpeed,
                         "uv_index"        => is_null($UV) ? NULL : (float)$UV,
                         "solar_rad" => is_null($radiation) ? NULL : (float)$radiation,
+                        "Max_solar_rad" => is_null($maxSolarRad) ? NULL : (float)$maxSolarRad,
+                        "ET"  => is_null($ET) ? NULL : (float)$ET,
+
+                        //ExtraTemp//
+                        "temp_extra_1_F" => is_null($extraTemp1) ? NULL : (float)$extraTemp1,
+                        "temp_extra_2_F" => is_null($extraTemp2) ? NULL : (float)$extraTemp2,
+                        "temp_extra_3_F" => is_null($extraTemp3) ? NULL : (float)$extraTemp3,
+                        "temp_extra_4_F" => is_null($extraTemp4) ? NULL : (float)$extraTemp4,
+                        "temp_extra_5_F" => is_null($extraTemp5) ? NULL : (float)$extraTemp5,
+                        "temp_extra_6_F" => is_null($extraTemp6) ? NULL : (float)$extraTemp6,
+                        "temp_extra_7_F" => is_null($extraTemp7) ? NULL : (float)$extraTemp7,
+                        "temp_extra_8_F" => is_null($extraTemp8) ? NULL : (float)$extraTemp8,
+
+                        //leafwet//
+                        " leaf_wetness_1" => is_null($leafWet1) ? NULL : (float)$leafWet1,
+                        " leaf_wetness_2" => is_null($leafWet2) ? NULL : (float)$leafWet2,
+
+                         //soilMoist//
+                         " soil_moisture_1" => is_null($soilMoist1) ? NULL : (float)$soilMoist1,
+                         " soil_moisture_2" => is_null($soilMoist2) ? NULL : (float)$soilMoist2,
+                         " soil_moisture_3" => is_null($soilMoist3) ? NULL : (float)$soilMoist3,
+                         " soil_moisture_4" => is_null($soilMoist4) ? NULL : (float)$soilMoist4,
+
+                            //soilTemp//
+                            " soil_Temp_1_F" => is_null($soilTemp1) ? NULL : (float)$soilTemp1,
+                            " soil_Temp_2_F" => is_null($soilTemp2) ? NULL : (float)$soilTemp2,
+                            " soil_Temp_3_F" => is_null($soilTemp3) ? NULL : (float)$soilTemp3,
+                            " soil_Temp_4_F" => is_null($soilTemp4) ? NULL : (float)$soilTemp4,
+
+                              //ExtraHumid/
+                        "humid_extra_1" => is_null($extraHumid1) ? NULL : (float)$extraHumid1,
+                        "humid_extra_2" => is_null($extraHumid2) ? NULL : (float)$extraHumid2,
+                        "humid_extra_3" => is_null($extraHumid3) ? NULL : (float)$extraHumid3,
+                        "humid_extra_4" => is_null($extraHumid4) ? NULL : (float)$extraHumid4,
+                        "humid_extra_5" => is_null($extraHumid5) ? NULL : (float)$extraHumid5,
+                        "humid_extra_6" => is_null($extraHumid6) ? NULL : (float)$extraHumid6,
+                        "humid_extra_7" => is_null($extraHumid7) ? NULL : (float)$extraHumid7,
+                        "humid_extra_8"  => is_null($extraHumid8) ? NULL : (float)$extraHumid8,
+
                         //Inside//
                         "temp_in_F"      => is_null($inTemp) ? NULL : (float) $inTemp,
                         "dew_point_in_F"  => is_null($inDewpoint) ? NULL : (float) $inDewpoint,

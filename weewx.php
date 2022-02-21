@@ -39,6 +39,37 @@ class Weewx
     public $longitude;
     public $station;
     public $time_zone;
+    public $extraHumid1;
+    public $extraHumid2;
+    public $extraHumid3;
+    public $extraHumid4;
+    public $extraHumid5;
+    public $extraHumid6;
+    public $extraHumid7;
+    public $extraHumid8;
+    public $soilMoist1;
+    public $soilMoist2;
+    public $soilMoist3;
+    public $soilMoist4;
+    public $leafTemp1;
+    public $leafTemp2;
+    public $soilTemp1;
+    public $soilTemp2;
+    public $soilTemp3;
+    public $soilTemp4;
+    public $extraTemp1;
+    public $extraTemp2;
+    public $extraTemp3;
+    public $extraTemp4;
+    public $extraTemp5;
+    public $extraTemp6;
+    public $extraTemp7;
+    public $extraTemp8;
+    public $ET;
+    
+
+
+
     
 
 
