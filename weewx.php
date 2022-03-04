@@ -66,11 +66,11 @@ class Weewx
     public $extraTemp7;
     public $extraTemp8;
     public $ET;
-    
+    public $Rain_max;
+    public $Tx;
+    public $Radiation_max;
+    public $Gust_max;
 
-
-
-    
 
 
 
@@ -269,6 +269,95 @@ class Weewx
     }
 
 
+ 
+
+
+    public function max_06UTC()
+    {
+        $datestart = strtotime(date('d-m-Y 06:00:00'));
+        $dateend = strtotime(date('d-m-Y 06:00:00 ', strtotime(' - 1 days'))) ;
+
+
+        // On écrit la requête
+        $sql = "SELECT dateTime, max(outTemp) as Tx  , max(rain) as Rain_max  FROM " . $this-> table. " WHERE dateTime BETWEEN " . $datestart . " AND " . $dateend . "";
+
+
+        // On prépare la requête
+        $query = $this->connexion->prepare($sql);
+
+        // On exécute la requête
+        $query->execute();
+
+
+        // On hydrate l'objet
+ 
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+
+        // On hydrate l'objet
+        $this->Tx = $row['Tx'];
+        $this->Rain_max = $row['Rain_max'];
+ // On hydrate l'objet
+        return $query;
+
+    }
+
+
+    public function max_00UTC()
+    {
+        $datestart = strtotime(date('d-m-Y 00:00:00'));
+        $dateend =  strtotime(date('d-m-Y 00:00:00 ', strtotime(' - 1 days'))) ;
+
+
+        // On écrit la requête
+        $sql = "SELECT dateTime, max(windGust) as Gust_max ,  max(radiation) as radiation_max FROM " . $this-> table. " WHERE dateTime BETWEEN " . $datestart . " AND " . $dateend . "";
+
+
+        // On prépare la requête
+        $query = $this->connexion->prepare($sql);
+
+        // On exécute la requête
+        $query->execute();
+
+        
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+
+        // On hydrate l'objet
+        $this->Gust_max = $row['Gust_max'];
+        $this->Radiation_max = $row['radiation_max'];
+
+ // On hydrate l'objet
+        return $query;
+
+    }
+
+    public function temp_mini()
+    {
+        $datestart = strtotime(date('d-m-Y 18:00:00'));
+        $dateend = strtotime(date('d-m-Y 18:00:00 ', strtotime(' - 1 days')));
+
+
+        // On écrit la requête
+        $sql = "SELECT dateTime, min(outTemp) as Tn  FROM " . $this-> table. " WHERE dateTime BETWEEN " . $datestart . " AND " . $dateend . "";
+
+
+        // On prépare la requête
+        $query = $this->connexion->prepare($sql);
+
+        // On exécute la requête
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+
+        // On hydrate l'objet
+        $this->Tn = $row['Tn'];
+       
+
+ // On hydrate l'objet
+        return $query;
+
+    }
+
+
     public function bar_trend()
     {
 
@@ -296,13 +385,14 @@ class Weewx
        
     }
 
+
+
     public function current()
     {
         
         // On écrit la requête
         $sql = "SELECT * FROM " . $this->table .  "  NATURAL JOIN " . $this->tableuser . "  ORDER BY dateTime DESC LIMIT 1";
 
-
         // On prépare la requête
         $query = $this->connexion->prepare($sql);
 
@@ -313,27 +403,8 @@ class Weewx
         return $query;
 
     }
-    /*
-     * Lecture des historic
-     *
-     * @return void
-     */
-    public function historic()
-    {
-        // On écrit la requête
-        // On écrit la requête
-        $sql = "SELECT * FROM " . $this->table .  "  NATURAL JOIN " . $this->tableuser . " WHERE dateTime BETWEEN :dateTime AND :dateTime1 ";
 
-        // On prépare la requête
-        $query = $this->connexion->prepare($sql);
-
-        // On attache le dateTime vers le Startimestamp  & Endtimestamp
-        $query->bindParam(':dateTime', $this->starttimestamp);
-        $query->bindParam(':dateTime1', $this->endtimestamp);
-
-        // On exécute la requête
-        $query->execute();
- // On hydrate l'objet
-        return $query;
-    }
 }
+
+
+
