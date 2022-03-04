@@ -144,6 +144,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             $heatindex = is_null($heatindex) ? NULL : (float) round((($heatindex * 9 / 5) + 32), 3);
                             $humidex =   is_null($humidex) ? NULL : (float) round((($humidex * 9 / 5) + 32), 3);
                             $windchill = is_null($windchill) ? NULL : (float) round((($windchill * 9 / 5) + 32), 3);
+                            $Tx =        is_null($Tx) ? NULL : (float)round(($Tx  * 9 / 5) + 32), 3);
+                            $Tn =        is_null($Tn) ? NULL : (float)round(($Tn * 9 / 5) + 32), 3);
+
 
                             //ExtraTemp//
                             $extraTemp1 = is_null($extraTemp1) ? NULL : (float)round((($extraTemp1 * 9 / 5) + 32), 3);
@@ -164,6 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             //Wind//
                             $windGust = is_null($windGust) ? NULL : (float) round($windGust / 1.609344, 3);
                             $windSpeed =is_null($windSpeed) ? NULL : (float) round($windSpeed / 1.609344, 3);
+                            $Gust_max = is_null($Gust_max) ? NULL : (float) round($Gust_max, / 1.609344, 3);
                            
 
                             //Pressure//
@@ -171,6 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             $barometer =is_null($barometer) ? NULL : (float) round($barometer / 33.8639, 3);
                             $pressure = is_null($pressure) ? NULL : (float) round($pressure / 33.8639, 3);
                             $trend_bar =is_null($trend_bar) ? NULL : (float) round($trend_bar / 33.8639, 3);
+
                             //Humidity 
                             $outHumidity =is_null($outHumidity) ? NULL : (float) round($outHumidity, 1);
                             $inHumidity =is_null($inHumidity) ? NULL : (float) round($inHumidity, 1);
@@ -237,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             //Wind//
                             $windGust =is_null($windGust) ? NULL : (float) round($windGust * 2.2369362921, 3);
                             $windSpeed=is_null($windSpeed) ? NULL : (float) round($windSpeed * 2.2369362921, 3);
-                            $Gust_max = is_null($Gust_max) ? NULL : (float) round($Gust_max, 3);
+                            $Gust_max = is_null($Gust_max) ? NULL : (float) round($Gust_max, * 2.2369362921, 3);
 
                             //Pressure//
                             $altimeter =is_null($altimeter) ? NULL : (float) round($altimeter * 33.8639, 3);
