@@ -269,17 +269,36 @@ class Weewx
     }
 
 
- 
+
 
 
     public function max_06UTC()
     {
-        $datestart = strtotime(date('d-m-Y 06:00:00'));
-        $dateend = strtotime(date('d-m-Y 06:00:00 ', strtotime(' - 1 days'))) ;
+        //Date Now//
+        $datenow = date('H:i');
+
+        //La on va voir si l'heure est > 18h01 pour pouvoir prendre les données à  j+1//
+        if ($datenow >= '06:01') {
+            $date = strtotime(date('d-m-Y 06:00:00 ', strtotime(' + 1 days')));
+        } else {
+            $date = date('d-m-Y H:i:00');
+        }
+
+        $datestart = $date;
+        $datestart5m = ceil(($datestart / 300) * 300) - (60 * 5);
+
+        //La on va voir si l'heure est >= 00h00 && <= 06h00 pour pouvoir prendre les données à  j-1//
+        if ($datenow >= '00:00' && $datenow <= '06:00') {
+            $date_end = strtotime(date('d-m-Y 06:00:00 ', strtotime(' - 1 days')));
+        } else {
+            $date_end = strtotime(date('d-m-Y 06:00:00'));
+        }
+
+        $date_end = $date_end;
 
 
         // On écrit la requête
-        $sql = "SELECT dateTime, max(outTemp) as Tx  , max(rain) as Rain_max  FROM " . $this-> table. " WHERE dateTime BETWEEN " . $datestart . " AND " . $dateend . "";
+        $sql = "SELECT dateTime, max(outTemp) as Tx  , max(rain) as Rain_max  FROM " . $this->table . " WHERE dateTime BETWEEN " . $date_end . " AND " . $datestart5m . "";
 
 
         // On prépare la requête
@@ -290,26 +309,30 @@ class Weewx
 
 
         // On hydrate l'objet
- 
+
         $row = $query->fetch(PDO::FETCH_ASSOC);
 
         // On hydrate l'objet
         $this->Tx = $row['Tx'];
         $this->Rain_max = $row['Rain_max'];
- // On hydrate l'objet
+        // On hydrate l'objet
         return $query;
-
     }
 
 
     public function max_00UTC()
+
     {
-        $datestart = strtotime(date('d-m-Y 00:00:00'));
-        $dateend =  strtotime(date('d-m-Y 00:00:00 ', strtotime(' - 1 days'))) ;
+
+        $datestart = strtotime(date('d-m-Y H:i:00'));
+        $datestart_arrondi = ceil($datestart / 300) * 300;
+        $datestart5m = $datestart_arrondi - (60 * 5);
+
+        $dateend =  strtotime(date('d-m-Y 00:00:00 '));
 
 
         // On écrit la requête
-        $sql = "SELECT dateTime, max(windGust) as Gust_max ,  max(radiation) as radiation_max FROM " . $this-> table. " WHERE dateTime BETWEEN " . $datestart . " AND " . $dateend . "";
+        $sql = "SELECT dateTime, max(windGust) as Gust_max ,  max(radiation) as radiation_max FROM " . $this->table . " WHERE dateTime BETWEEN " . $dateend . " AND " . $datestart5m . "";
 
 
         // On prépare la requête
@@ -318,26 +341,42 @@ class Weewx
         // On exécute la requête
         $query->execute();
 
-        
+
         $row = $query->fetch(PDO::FETCH_ASSOC);
 
         // On hydrate l'objet
         $this->Gust_max = $row['Gust_max'];
         $this->Radiation_max = $row['radiation_max'];
 
- // On hydrate l'objet
+        // On hydrate l'objet
         return $query;
-
     }
+
+
 
     public function temp_mini()
     {
-        $datestart = strtotime(date('d-m-Y 18:00:00'));
+
+        //Date Now//
+        $datenow = date('H:i');
+
+        //La on va voir si l'heure est > 18h01 pour pouvoir prendre les données à  j-1//
+        if ($datenow >= '18:01') {
+            $date = date('d-m-Y 18:00:00');
+        } else {
+            $date = date('d-m-Y H:i');
+        }
+
+
+
+        $datestart = strtotime($date);
+        //Date en 5m en 5m//
+        $datestart = ceil($datestart / 300) * 300;
         $dateend = strtotime(date('d-m-Y 18:00:00 ', strtotime(' - 1 days')));
 
 
         // On écrit la requête
-        $sql = "SELECT dateTime, min(outTemp) as Tn  FROM " . $this-> table. " WHERE dateTime BETWEEN " . $datestart . " AND " . $dateend . "";
+        $sql = "SELECT dateTime, min(outTemp) as Tn  FROM " . $this->table . " WHERE dateTime BETWEEN " . $dateend   . " AND " . $datestart . "";
 
 
         // On prépare la requête
@@ -350,28 +389,26 @@ class Weewx
 
         // On hydrate l'objet
         $this->Tn = $row['Tn'];
-       
 
- // On hydrate l'objet
+        // On hydrate l'objet
         return $query;
-
     }
 
 
     public function bar_trend()
     {
 
-    
+
         //On récupère l'heure actu puis on va arrondir pour avoir les données par 5m//
-        $now = time();     
-        $next_five = ceil($now/300)*300;
-        
-        $futureDate = $next_five-(60*5); //L'heure du dernier rèlevé
-        $pastDate = $next_five-(60*180);  //L'heure du dernier rèlevé 3H avant
+        $now = time();
+        $next_five = ceil($now / 300) * 300;
+
+        $futureDate = $next_five - (60 * 5); //L'heure du dernier rèlevé
+        $pastDate = $next_five - (60 * 180);  //L'heure du dernier rèlevé 3H avant
 
 
         // On écrit la requête
-        $sql = "SELECT  ROUND(barometer, 10) AS bar_trend FROM " . $this->table . " WHERE dateTime = " .$pastDate. "  OR dateTime =  " .$futureDate. "";
+        $sql = "SELECT  ROUND(barometer, 10) AS bar_trend FROM " . $this->table . " WHERE dateTime = " . $pastDate . "  OR dateTime =  " . $futureDate . "";
 
         // On prépare la requête
         $query = $this->connexion->prepare($sql);
@@ -381,15 +418,13 @@ class Weewx
 
         // On hydrate l'objet
         return $query;
-
-       
     }
 
 
 
     public function current()
     {
-        
+
         // On écrit la requête
         $sql = "SELECT * FROM " . $this->table .  "  NATURAL JOIN " . $this->tableuser . "  ORDER BY dateTime DESC LIMIT 1";
 
@@ -399,12 +434,7 @@ class Weewx
         // On exécute la requête
         $query->execute();
 
- // On hydrate l'objet
+        // On hydrate l'objet
         return $query;
-
     }
-
 }
-
-
-
