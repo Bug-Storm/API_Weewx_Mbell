@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             //Wind//
                             $windGust = is_null($windGust) ? NULL : (float) round($windGust / 1.609344, 3);
                             $windSpeed =is_null($windSpeed) ? NULL : (float) round($windSpeed / 1.609344, 3);
-                            $Gust_max = is_null($Gust_max) ? NULL : (float) round($Gust_max, / 1.609344, 3);
+                            $Gust_max = is_null($Gust_max) ? NULL : (float) round($Gust_max / 1.609344, 3);
                            
 
                             //Pressure//
@@ -242,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             //Wind//
                             $windGust =is_null($windGust) ? NULL : (float) round($windGust * 2.2369362921, 3);
                             $windSpeed=is_null($windSpeed) ? NULL : (float) round($windSpeed * 2.2369362921, 3);
-                            $Gust_max = is_null($Gust_max) ? NULL : (float) round($Gust_max, * 2.2369362921, 3);
+                            $Gust_max = is_null($Gust_max) ? NULL : (float) round($Gust_max * 2.2369362921, 3);
 
                             //Pressure//
                             $altimeter =is_null($altimeter) ? NULL : (float) round($altimeter * 33.8639, 3);
