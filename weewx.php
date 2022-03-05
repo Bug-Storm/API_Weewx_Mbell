@@ -274,24 +274,24 @@ class Weewx
 
     public function max_06UTC()
     {
-        //Date Now//
-        $datenow = date('H:i');
 
-        //La on va voir si l'heure est > 18h01 pour pouvoir prendre les données à  j+1//
+        $datenow = gmdate('H:i');
+
+
         if ($datenow >= '06:01') {
-            $date = strtotime(date('d-m-Y 06:00:00 ', strtotime(' + 1 days')));
+            $date = strtotime(gmdate('d-m-Y 06:00:00 ', strtotime(' + 1 days')));
         } else {
-            $date = date('d-m-Y H:i:00');
+            $date = gmdate('d-m-Y H:i:00');
         }
 
         $datestart = $date;
         $datestart5m = ceil(($datestart / 300) * 300) - (60 * 5);
 
-        //La on va voir si l'heure est >= 00h00 && <= 06h00 pour pouvoir prendre les données à  j-1//
+
         if ($datenow >= '00:00' && $datenow <= '06:00') {
-            $date_end = strtotime(date('d-m-Y 06:00:00 ', strtotime(' - 1 days')));
+            $date_end = strtotime(gmdate('d-m-Y 06:00:00 ', strtotime(' - 1 days')));
         } else {
-            $date_end = strtotime(date('d-m-Y 06:00:00'));
+            $date_end = strtotime(gmdate('d-m-Y 06:00:00'));
         }
 
         $date_end = $date_end;
@@ -324,11 +324,11 @@ class Weewx
 
     {
 
-        $datestart = strtotime(date('d-m-Y H:i:00'));
+        $datestart = strtotime(gmdate('d-m-Y H:i:00'));
         $datestart_arrondi = ceil($datestart / 300) * 300;
         $datestart5m = $datestart_arrondi - (60 * 5);
 
-        $dateend =  strtotime(date('d-m-Y 00:00:00 '));
+        $dateend =  strtotime(gmdate('d-m-Y 00:00:00 '));
 
 
         // On écrit la requête
@@ -358,13 +358,13 @@ class Weewx
     {
 
         //Date Now//
-        $datenow = date('H:i');
+        $datenow = gmdate('H:i');
 
         //La on va voir si l'heure est > 18h01 pour pouvoir prendre les données à  j-1//
         if ($datenow >= '18:01') {
-            $date = date('d-m-Y 18:00:00');
+            $date = gmdate('d-m-Y 18:00:00');
         } else {
-            $date = date('d-m-Y H:i');
+            $date = gmdate('d-m-Y H:i');
         }
 
 
@@ -372,7 +372,7 @@ class Weewx
         $datestart = strtotime($date);
         //Date en 5m en 5m//
         $datestart = ceil($datestart / 300) * 300;
-        $dateend = strtotime(date('d-m-Y 18:00:00 ', strtotime(' - 1 days')));
+        $dateend = strtotime(gmdate('d-m-Y 18:00:00 ', strtotime(' - 1 days')));
 
 
         // On écrit la requête
