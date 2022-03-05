@@ -144,8 +144,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             $heatindex = is_null($heatindex) ? NULL : (float) round((($heatindex * 9 / 5) + 32), 3);
                             $humidex =   is_null($humidex) ? NULL : (float) round((($humidex * 9 / 5) + 32), 3);
                             $windchill = is_null($windchill) ? NULL : (float) round((($windchill * 9 / 5) + 32), 3);
-                            $Tx =        is_null($Tx) ? NULL : (float)round(($Tx  * 9 / 5) + 32), 3);
-                            $Tn =        is_null($Tn) ? NULL : (float)round(($Tn * 9 / 5) + 32), 3);
+                            $Tx =        is_null($Tx) ? NULL : (float)round((($Tx  * 9 / 5) + 32), 3);
+                            $Tn =        is_null($Tn) ? NULL : (float)round((($Tn * 9 / 5) + 32), 3);
 
 
                             //ExtraTemp//
