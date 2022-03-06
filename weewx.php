@@ -275,9 +275,13 @@ class Weewx
     public function max_06UTC()
     {
 
+        //L'heure par default est en UTC
+        date_default_timezone_set('UTC');  
+
+        //L'heure actu //
         $datenow = gmdate('H:i');
 
-
+        //S'il est 06h01, on va commencer la nouvelle climatologie, sinon on prends cela actu// 
         if ($datenow >= '06:01') {
             $date = strtotime(gmdate('d-m-Y 06:00:00 ', strtotime(' + 1 days')));
         } else {
@@ -285,9 +289,11 @@ class Weewx
         }
 
         $datestart = $date;
+        //On va arrondir par 5m car c'est le timming des releves //
+
         $datestart5m = ceil(($datestart / 300) * 300) - (60 * 5);
 
-
+        //Si l'heure est >00UTC ou <06UTC on va recup la climatologie de jours d'avant sinon  la nouvelle donc cela actu//
         if ($datenow >= '00:00' && $datenow <= '06:00') {
             $date_end = strtotime(gmdate('d-m-Y 06:00:00 ', strtotime(' - 1 days')));
         } else {
@@ -323,11 +329,13 @@ class Weewx
     public function max_00UTC()
 
     {
+        //L'heure par default est en UTC
+        date_default_timezone_set('UTC');   
 
-        $datestart = strtotime(gmdate('d-m-Y 00:00:00', strtotime('+ 1 days ')));
-        $datestart_arrondi = ceil($datestart / 300) * 300;
-        $datestart5m = $datestart_arrondi - (60 * 5);
-
+        //On avance 1 jour 00h UTC
+        $datestart = strtotime(gmdate('d-m-Y 00:00:00', strtotime(' + 1 days ')));
+       
+        // 00h UTC
         $dateend =  strtotime(gmdate('d-m-Y 00:00:00 '));
 
 
@@ -356,7 +364,7 @@ class Weewx
 
     public function temp_mini()
     {
-
+        date_default_timezone_set('UTC');  
         //Date Now//
         $datenow = gmdate('H:i');
 
@@ -384,10 +392,10 @@ class Weewx
 
         // On exécute la requête
         $query->execute();
-
+        //Fetch les données //
         $row = $query->fetch(PDO::FETCH_ASSOC);
 
-        // On hydrate l'objet
+        //row avec la Tn
         $this->Tn = $row['Tn'];
 
         // On hydrate l'objet
