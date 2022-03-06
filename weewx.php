@@ -324,7 +324,7 @@ class Weewx
 
     {
 
-        $$datestart = strtotime(gmdate('d-m-Y 00:00:00', strtotime('+ 1 dayss ')));
+        $datestart = strtotime(gmdate('d-m-Y 00:00:00', strtotime('+ 1 dayss ')));
         $datestart_arrondi = ceil($datestart / 300) * 300;
         $datestart5m = $datestart_arrondi - (60 * 5);
 
