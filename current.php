@@ -410,6 +410,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             "leaf_wetness_1"                => is_null($leafWet1) ? NULL : (float)$leafWet1,
                             "leaf_wetness_2"                => is_null($leafWet2) ? NULL : (float)$leafWet2,
 
+                            //leaTemp//
+                            "leaf_Temp_1"                => is_null($leafTemp1) ? NULL : (float)$leafTemp1,
+                            "leaf_Temp_2"                => is_null($leafTemp2) ? NULL : (float)$leafTemp2,
+
                             //soilMoist//
                             "soil_moisture_1"               => is_null($soilMoist1) ? NULL : (float)$soilMoist1,
                             "soil_moisture_2"               => is_null($soilMoist2) ? NULL : (float)$soilMoist2,
