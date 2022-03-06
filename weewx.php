@@ -340,7 +340,7 @@ class Weewx
 
 
         // On écrit la requête
-        $sql = "SELECT dateTime, max(windGust) as Gust_max ,  max(radiation) as radiation_max FROM " . $this->table . " WHERE dateTime BETWEEN " . $dateend . " AND " . $datestart5m . "";
+        $sql = "SELECT dateTime, max(windGust) as Gust_max ,  max(radiation) as radiation_max FROM " . $this->table . " WHERE dateTime BETWEEN " . $dateend . " AND " . $datestart . "";
 
 
         // On prépare la requête
