@@ -285,7 +285,7 @@ class Weewx
         if ($datenow >= '06:01') {
             $date = strtotime(gmdate('d-m-Y 06:00:00 ', strtotime(' + 1 days')));
         } else {
-            $date = gmdate('d-m-Y H:i:00');
+            $date = strtotime(gmdate('d-m-Y H:i:00'));
         }
 
         $datestart = $date;
